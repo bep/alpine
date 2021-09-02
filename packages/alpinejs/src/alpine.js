@@ -5,7 +5,7 @@ import { start, addRootSelector, closestRoot, initTree } from './lifecycle'
 import { interceptor } from './interceptor'
 import { debounce } from './utils/debounce'
 import { throttle } from './utils/throttle'
-import { mutateDom } from './mutation'
+import { mutateDom, stopObservingMutations } from './mutation'
 import { nextTick } from './nextTick'
 import { plugin } from './plugin'
 import { magic } from './magics'
@@ -20,6 +20,7 @@ let Alpine = {
     get raw() { return raw },
     version: ALPINE_VERSION,
     disableEffectScheduling,
+    stopObservingMutations,
     setReactivityEngine,
     addRootSelector,
     mapAttributes,
